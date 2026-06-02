@@ -1,0 +1,80 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.*
+
+# IDEs
+.vscode/
+.idea/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type Checking / Linting
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# Build Artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Docker
+docker-compose.yml
+docker-compose.override.yml
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+
+# PostgreSQL Volume Data
+postgres_data/
+
+# Runtime Files
+tmp/
+temp/
+*.tmp
+*.pid
+*.sock
+
+# Documentation
+README.md
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Secrets
+secrets/
+credentials.json
+service-account.json
+
+# Ollama Models (if any local cache exists)
+models/
+downloads/

@@ -1,0 +1,85 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.*
+
+# IDEs
+.idea/
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Python Packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Type Checkers
+.mypy_cache/
+.pyre/
+.ruff_cache/
+
+# Docker
+docker-compose.override.yml
+
+# PostgreSQL Data
+postgres_data/
+
+# Local Database Files
+*.db
+*.sqlite
+*.sqlite3
+
+# Ollama / LLM Artifacts
+models/
+downloads/
+
+# MCP Runtime Files
+*.pid
+*.sock
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# Secrets
+secrets/
+credentials.json
+service-account.json
+
+# JetBrains
+.idea_modules/
+*.iml
+
+# Mac
+.AppleDouble
+.LSOverride
+
+# Windows
+ehthumbs.db
+Desktop.ini
