@@ -1,0 +1,67 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: postgres-db
+
+    environment:
+      POSTGRES_DB: mcp_demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5430:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres-mcp-server/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d mcp_demo"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mcp-server:
+    build:
+      context: ./postgres-mcp-server
+
+    container_name: mcp-server
+
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: mcp_demo
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    ports:
+      - "8000:8000"
+
+  mcp-client:
+    build:
+      context: ./local-mcp-client
+
+    container_name: mcp-client
+
+    environment:
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: deepseek-r1:7b
+
+    depends_on:
+      - mcp-server
+
+    stdin_open: true
+    tty: true
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  postgres_data:
